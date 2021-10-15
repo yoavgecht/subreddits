@@ -39,7 +39,7 @@ useEffect(() => {
         // Something happened in setting up the request that triggered an Error
         console.log('Error', error.message);
       }
-      return <div>Error: {error.response.status}</div>
+      return <div>Error: {error.message}</div>
     }
   )
 }, []);
