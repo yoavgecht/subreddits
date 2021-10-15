@@ -7,7 +7,7 @@ function App({ hideLoader }) {
   const [loading, setLoading] = useState(true)
   const [subReddits, setSubReddits] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
-  const [error, setError] = useState(false)
+  const [error, setError] = useState('')
 
   // how many subreddits to show for each page
   const subRedditsPerPage = 5;
@@ -28,7 +28,7 @@ useEffect(() => {
   }).catch(
     function (error) {
       setLoading(false);
-      setError(true);
+      setError(error.message);
       if (error.response) {
         // Request made and server responded
         console.log(error.response.data);
@@ -76,7 +76,8 @@ const displaySubReddits = subReddits
   }
   return (
     <div>
-      {!loading ? (<div className="App">
+      {error ? (<h1>{error}</h1>) :
+      !loading ? (<div className="App">
         {displaySubReddits}
         <ReactPaginate  
         previousLabel={"Previous"} 
