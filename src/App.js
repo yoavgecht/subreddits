@@ -7,6 +7,7 @@ function App({ hideLoader }) {
   const [loading, setLoading] = useState(true)
   const [subReddits, setSubReddits] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
+  const [error, setError] = useState(false)
 
   // how many subreddits to show for each page
   const subRedditsPerPage = 5;
@@ -27,6 +28,7 @@ useEffect(() => {
   }).catch(
     function (error) {
       setLoading(false);
+      setError(true);
       if (error.response) {
         // Request made and server responded
         console.log(error.response.data);
@@ -39,7 +41,6 @@ useEffect(() => {
         // Something happened in setting up the request that triggered an Error
         console.log('Error', error.message);
       }
-      return <div><h1>Error: {error.message}</h1></div>
     }
   )
 }, []);
@@ -90,7 +91,7 @@ const displaySubReddits = subReddits
         />
     </div>) : (<div className="loader"></div>)}
     </div>
-   
+    
   );
 }
 
