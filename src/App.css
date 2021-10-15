@@ -1,0 +1,124 @@
+/* a styles reset */
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none; 
+  color:#222222;
+}
+
+/* reddits styles */
+
+.App {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+  }
+
+  .subreddit-item {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    width: 640px;
+    margin: 20px;
+    cursor: pointer;
+    position: relative;
+    color:#222222;
+    align-items: center;
+  }
+
+  .subreddit-ups {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    right: 5px;
+    padding: 8px 4px 8px 0;
+    position: absolute;
+    bottom: -4px;
+    font-weight: bold;
+  }
+
+  .subreddit-content {
+      padding: 20px 40px;
+  }
+
+  .subreddit-item img{
+      width:150px;
+      height:150px;
+      padding: 20px 0;
+  }
+
+
+  /* pagination styles */
+  
+  .pagination-btns {
+    width: 80%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    
+  }
+
+  .pagination-btns a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    color: black;
+    cursor: pointer;
+  }
+
+  .pagination-btns a:hover {
+    color: black;
+    font-weight: bold;
+
+    
+  }
+
+  .pagination-active a {
+    color: black;
+    opacity: 50%;
+    font-weight: bold;
+  }
+
+  .pagination-disabled a {
+    opacity: 50%;
+    color: #666666;
+  }
+
+  .pagination-disabled a:hover {
+    opacity: 50%;
+    font-weight:normal;
+  }
+
+
+ /* LOADER */
+
+  .loader {
+    position: absolute;
+    top: calc(50% - 4em);
+    left: calc(50% - 4em);
+    width: 6em;
+    height: 6em;
+    border: 1.1em solid rgba(0, 0, 0, 0.2);
+    border-left: 1.1em solid #000000;
+    border-radius: 50%;
+    animation: load8 1.1s infinite linear;
+    transition: opacity 0.3s;
+  }
+  
+  .loader--hide {
+    opacity: 0;
+  }
+  
+  @keyframes load8 {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
